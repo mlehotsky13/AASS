@@ -6,11 +6,16 @@ import org.hibernate.Transaction;
 import constants.Position;
 import entity.Employee;
 import entity.Person;
+import lombok.extern.slf4j.Slf4j;
 import util.HibernateUtil;
 
+@Slf4j
 public class MainClass {
 	public static void main(String[] args) {
+
+		log.info("Opening session");
 		Session session = HibernateUtil.getSessionFactory().openSession();
+		log.info("Beginning transaction");
 		Transaction t = session.beginTransaction();
 
 		// Person p1 = new Person("Miroslav", "Lehotsky");
@@ -19,6 +24,7 @@ public class MainClass {
 
 		session.persist(p1);
 
+		log.info("Commiting transaction");
 		t.commit();
 		session.close();
 

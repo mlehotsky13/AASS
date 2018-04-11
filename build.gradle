@@ -4,9 +4,17 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+	hibernateVersion = '5.2.16.Final'
+	lombokVersion = '1.16.18'
+	slf4jVersion = '1.7.25'
+}
+
 dependencies {
-	implementation(
-		group: 'org.hibernate', name: 'hibernate-core', version: '5.2.16.Final'
+	implementation (
+		[group: 'org.hibernate', name: 'hibernate-core', version: hibernateVersion],
+		[group: 'org.projectlombok', name: 'lombok', version: lombokVersion],
+		[group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion]
 	)
 }
 
