@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import constants.Position;
+import entity.Customer;
 import entity.Employee;
 import entity.Person;
 import lombok.extern.slf4j.Slf4j;
@@ -18,11 +19,11 @@ public class MainClass {
 		log.info("Beginning transaction");
 		Transaction t = session.beginTransaction();
 
-		// Person p1 = new Person("Miroslav", "Lehotsky");
 		Person p1 = new Employee("Miroslav", "Lehotsky", 321.23, Position.COOK);
-		// Person p1 = new Customer("Miroslav", "Lehotsky", "NeviemCo");
+		Person p2 = new Customer("Miroslav", "Lehotsky", "NeviemCo");
 
 		session.persist(p1);
+		session.persist(p2);
 
 		log.info("Commiting transaction");
 		t.commit();
