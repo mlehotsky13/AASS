@@ -1,0 +1,12 @@
+apply plugin: 'java-library'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation(
+		group: 'org.hibernate', name: 'hibernate-core', version: '5.2.16.Final'
+	)
+}
+
