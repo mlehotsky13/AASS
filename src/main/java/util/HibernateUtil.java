@@ -15,9 +15,11 @@ public class HibernateUtil {
 		log.info("Starting to build SessionFactory...");
 		try {
 			Configuration cfg = new Configuration();
+			cfg.configure("hibernate.cfg.xml");
 			cfg.setProperty("hibernate.connection.username", System.getProperty("db.username"));
 			cfg.setProperty("hibernate.connection.password", System.getProperty("db.password"));
-			sessionFactory = cfg.configure("hibernate.cfg.xml").buildSessionFactory();
+
+			sessionFactory = cfg.buildSessionFactory();
 		} catch (Exception e) {
 			log.error("Some error occured");
 		}
